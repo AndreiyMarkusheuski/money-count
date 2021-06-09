@@ -1,7 +1,8 @@
 {
-    "name": "static-landing-webpack-starter",
+    "name": "money-count",
     "version": "1.0.0",
     "description": "Webpack Starter",
+    "homepage": "http://AndreiyMarkusheuski.github.io/money-count",
     "main": "./src/index.js",
     "scripts": {
         "start": "webpack-dev-server --config build/webpack.dev.conf.js --watch",
