@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = require('./webpack.base.conf');
-const localeConfig = require('../src/locales/en.json');
+const localeConfig = require('../src/locales/ru.json');
 
 module.exports = merge(common, {
     mode: "development",
@@ -22,7 +22,7 @@ module.exports = merge(common, {
     plugins: [
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
-            lang: 'en',
+            lang: 'ru',
             filename: 'index.html',
             template: './src/views/index.html',
             favicon: './src/images/favicon.ico',

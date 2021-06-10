@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {parseObjectToValue, getCountDayForMoney} from '../utils/index'
+import {parseObjectToValue, getCountDayForMoney} from '../../app/utils/index'
 
 const ShowMoneyCount = (props) => {
     return (

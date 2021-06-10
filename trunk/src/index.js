@@ -1,2 +1,2 @@
 import './styles/index.scss';
-import './components/app'
+import './app/components'

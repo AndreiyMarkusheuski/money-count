@@ -3,9 +3,9 @@ import {userName} from "./config";
 const data = 220;
 
 const ConnectToDB = {
-  initMoneyCount: (data) => {
+  initData: (data, type) => {
     fetch(
-      `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${userName}.json`,
+      `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`,
       {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
@@ -22,22 +22,22 @@ const ConnectToDB = {
     );
   },
 
-  getMoneyCount: () => {
+  getData: (type) => {
     return fetch(
-      `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${userName}.json`
-    )
+      `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`
+    );
   },
 
-  updateMoneyCount: (data) => {
+  updateData: (data, type) => {
     return fetch(
-      `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${userName}.json`,
+      `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`,
       {
         method: "DELETE",
       }
     )
       .then(() => {
         return fetch(
-          `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${userName}.json`,
+          `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`,
           {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, *cors, same-origin
@@ -53,7 +53,7 @@ const ConnectToDB = {
           }
         ).catch((e) => console.error(e));
       })
-      .then(res => res)
+      .then((res) => res)
       .catch((e) => console.error(e));
   },
 };
