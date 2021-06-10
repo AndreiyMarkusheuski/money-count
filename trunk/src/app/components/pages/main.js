@@ -28,8 +28,8 @@ const Main = () => {
   const handleClickInput = async (value) => {
     const newBalanceValue = balance - value;
     const newMoneyValue = moneyValue - value;
-    setBalance(await updateDataFromDB(BALANCE, newBalanceValue));
-    setMoneyValue(await updateDataFromDB(MONEY, newMoneyValue));
+    setBalance(await updateDataFromDB(BALANCE, newBalanceValue.toFixed(1)));
+    setMoneyValue(await updateDataFromDB(MONEY, newMoneyValue.toFixed(1)));
   };
 
   return (
