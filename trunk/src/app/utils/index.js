@@ -5,13 +5,13 @@ export const parseObjectToValue = (object) => Object.values(object)[0];
 
 export const getCountDayBeforeMoney = () => {
   const CURRENT_DATE = new Date().getDate();
-  if (CURRENT_DATE > LAST_DATE && CURRENT_DATE < new Date().daysInMonth()) {
+  if (CURRENT_DATE >= LAST_DATE && CURRENT_DATE < new Date().daysInMonth()) {
     // if CURRENT_DATE between LAST_DATE and the last day of the current month
     return new Date().daysInMonth() - CURRENT_DATE + FIRST_DATE;
   } else if (CURRENT_DATE < FIRST_DATE) {
     // if CURRENT_DATE between the first day of the current month and FIRST_DATE
     return FIRST_DATE - CURRENT_DATE;
-  } else if (CURRENT_DATE > FIRST_DATE && CURRENT_DATE < LAST_DATE) {
+  } else if (CURRENT_DATE >= FIRST_DATE && CURRENT_DATE < LAST_DATE) {
     // if CURRENT_DATE between FIRST_DATE and LAST_DATE
     return LAST_DATE - CURRENT_DATE;
   }
