@@ -1,9 +1,14 @@
 import React from "react";
-import { getAnalytics, getCountDayBeforeMoney } from "../../utils";
+import { getAnalytics, getCountDayBeforeMoney } from "../../utils/index";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination } from "swiper";
 
-const ShowAnalytics = (props) => {
+type IShowAnalytics = {
+  balance : number,
+  moneyValue : number
+}
+
+const ShowAnalytics = (props : IShowAnalytics) => {
   SwiperCore.use([Pagination]);
   return (
     <div className="block-analytics">

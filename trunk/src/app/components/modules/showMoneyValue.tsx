@@ -1,6 +1,10 @@
 import React from 'react';
 
-const ShowMoneyValue = (props) => {
+type IShowMoneyValue = {
+  moneyValue : number
+}
+
+const ShowMoneyValue = (props : IShowMoneyValue) => {
   return (
     <div className="block-money">
       <p>Текущий счет</p>

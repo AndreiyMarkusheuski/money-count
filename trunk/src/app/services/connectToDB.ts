@@ -1,9 +1,7 @@
 import {userName} from "./config";
 
-const data = 220;
-
 const ConnectToDB = {
-  initData: (data, type) => {
+  initData: (data : number, type : string) => {
     fetch(
       `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`,
       {
@@ -22,13 +20,13 @@ const ConnectToDB = {
     );
   },
 
-  getData: (type) => {
+  getData: (type : string) => {
     return fetch(
       `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`
     );
   },
 
-  updateData: (data, type) => {
+  updateData: (data : number, type : string) => {
     return fetch(
       `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`,
       {
@@ -57,5 +55,8 @@ const ConnectToDB = {
       .catch((e) => console.error(e));
   },
 };
+
+
+// ConnectToDB.initData(4, "day")
 
 export default ConnectToDB;

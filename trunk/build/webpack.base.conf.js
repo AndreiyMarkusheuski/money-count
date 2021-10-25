@@ -5,7 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   context: path.resolve(__dirname, "../"),
   entry: {
-    main: "./src/index.js",
+    main: "./src/index.ts",
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
@@ -35,12 +38,9 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env", "@babel/preset-react"],
-        },
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
