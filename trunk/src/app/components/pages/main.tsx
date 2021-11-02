@@ -8,38 +8,42 @@ import {
   updateDataFromDB,
   isExpiryDay,
 } from "../../utils/index";
-import { MONEY, BALANCE, DAY } from "../../const/index";
+
+import {prepareForWork} from '../../services/dataControl/prepareDatabase'
 
 const Main = () => {
   const [moneyValue, setMoneyValue] = useState<number>();
   const [balance, setBalance] = useState<number>();
+  const [isReady, setReadyStatus] = useState<boolean>(false)
 
   useEffect(() => {
     const asynsGetData = async () => {
-      const moneyValueFromDB : number = await getDataFromDB(MONEY);
+      const {money, balance, day} = await prepareForWork();
       
-      setMoneyValue(moneyValueFromDB);
-  
-      if (await isExpiryDay()) {
-        setBalance(getAnalytics(moneyValueFromDB));
-        updateDataFromDB(DAY, new Date().getDate());
-        updateDataFromDB(BALANCE, getAnalytics(moneyValueFromDB));
-      } else setBalance(await getDataFromDB(BALANCE));
-    }
+      setMoneyValue(money);
+      setBalance(balance);
 
+      if (isExpiryDay(day)) {
+        setBalance(getAnalytics(money));
+        updateDataFromDB("day", new Date().getDate());
+        updateDataFromDB("balance", getAnalytics(money));
+      }
+
+      setReadyStatus(true)
+    }
     asynsGetData()
   }, []);
 
   const handleClickInput = async (value : number) => {
     const newBalanceValue = balance - value;
     const newMoneyValue = moneyValue - value;
-    setBalance(await updateDataFromDB(BALANCE, parseFloat(newBalanceValue.toFixed(1))));
-    setMoneyValue(await updateDataFromDB(MONEY, parseFloat(newMoneyValue.toFixed(1))));
+    setBalance(await updateDataFromDB("balance", parseFloat(newBalanceValue.toFixed(1))));
+    setMoneyValue(await updateDataFromDB("money", parseFloat(newMoneyValue.toFixed(1))));
   };
 
   return (
-    moneyValue ? (
-      <div className="block-main">text
+    isReady ? (
+      <div className="block-main">
         <ShowMoneyValue moneyValue={moneyValue} />
         <div className="block-group">
           <ShowAnalytics moneyValue={moneyValue} balance={balance} />

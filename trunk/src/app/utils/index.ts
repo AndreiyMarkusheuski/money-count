@@ -1,5 +1,5 @@
 import { FIRST_DATE, LAST_DATE } from "../const";
-import ConnectToDB from "../services/connectToDB";
+import ConnectToDB from "../services/connetWithDB/fetchDB";
 
 export const parseObjectToValue = (object : object) => Object.values(object)[0];
 
@@ -30,11 +30,7 @@ export const getDataFromDB = (type : string) : Promise<number> => {
 export const updateDataFromDB = async (type : string, value : number) : Promise<number> =>
   ConnectToDB.updateData(value, type).then(() => getDataFromDB(type));
 
-export const isExpiryDay = async () : Promise<boolean> => {
-  const currentDay = new Date().getDate();
-  const dateFromDB = await getDataFromDB("day");
-  return currentDay !== dateFromDB;
-};
+export const isExpiryDay = (dayFromDB : number) : boolean => new Date().getDate() !== dayFromDB;
 
 const daysInMonth = function () : number {
   return 32 - new Date(new Date().getFullYear(), new Date().getMonth(), 32).getDate();

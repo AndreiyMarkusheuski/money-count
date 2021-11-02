@@ -1,6 +1,8 @@
 import {userName} from "./config";
 
-const ConnectToDB = {
+import { DBKeys } from '../../const/index'
+
+const db = {
   initData: (data : number, type : string) => {
     fetch(
       `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`,
@@ -24,6 +26,10 @@ const ConnectToDB = {
     return fetch(
       `https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${type}/${userName}.json`
     );
+  },
+
+  getAllData: () => {
+    return Promise.all(DBKeys.map(key => fetch(`https://money-control-prod-default-rtdb.europe-west1.firebasedatabase.app/${key}/${userName}.json`)))
   },
 
   updateData: (data : number, type : string) => {
@@ -59,4 +65,4 @@ const ConnectToDB = {
 
 // ConnectToDB.initData(4, "day")
 
-export default ConnectToDB;
+export default db;
