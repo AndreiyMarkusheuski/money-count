@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+import { StyledButton } from './StyledButton'
+
 
 type IInputCosts = {
-  handleClick : (inputValue : number) => void
+  handleClick: (inputValue: number) => void
 }
 
-const InputCosts = (props : IInputCosts) => {
+const InputCosts = (props: IInputCosts) => {
   const [inputValue, setValue] = useState<string>();
   return (
     <div className="block-input">
@@ -16,14 +18,13 @@ const InputCosts = (props : IInputCosts) => {
           onChange={(e) => setValue(e.target.value)}
         ></input>
       </label>
-      <button
-        onClick={() => {
+      <StyledButton
+        onHandleClick={() => {
           props.handleClick(parseFloat(inputValue));
           setValue('');
         }}
-      >
-        click
-      </button>
+        textButton={'click'}
+      />
     </div>
   );
 };

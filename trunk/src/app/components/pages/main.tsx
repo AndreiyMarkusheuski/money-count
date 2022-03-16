@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ShowMoneyValue from "../modules/showMoneyValue";
 import ShowAnalytics from "../modules/showAnalytics";
 import InputCosts from "../modules/inputCosts";
@@ -8,6 +8,8 @@ import {
   updateDataFromDB,
   isExpiryDay,
 } from "../../utils/index";
+ import { ThemeContext } from "../../context";
+ import { StyledButton } from "../modules/StyledButton";
 
 import {prepareForWork} from '../../services/dataControl/prepareDatabase'
 
@@ -15,6 +17,8 @@ const Main = () => {
   const [moneyValue, setMoneyValue] = useState<number>();
   const [balance, setBalance] = useState<number>();
   const [isReady, setReadyStatus] = useState<boolean>(false)
+
+  const {darkTheme, handleChangeTheme} = useContext(ThemeContext);
 
   useEffect(() => {
     const asynsGetData = async () => {
@@ -43,12 +47,17 @@ const Main = () => {
 
   return (
     isReady ? (
-      <div className="block-main">
+      <div className="block-main" style={{backgroundColor: `${darkTheme ? '#000' : '#FFF'}`}}>
         <ShowMoneyValue moneyValue={moneyValue} />
         <div className="block-group">
           <ShowAnalytics moneyValue={moneyValue} balance={balance} />
           <InputCosts handleClick={handleClickInput} />
         </div>
+
+      <StyledButton
+        onHandleClick={() => handleChangeTheme()}
+        textButton={'Switch Theme'}
+      />
       </div>
     ) : (
       <div>Loading...</div>
