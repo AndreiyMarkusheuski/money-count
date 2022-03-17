@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ShowMoneyValue from "../modules/showMoneyValue";
 import ShowAnalytics from "../modules/showAnalytics";
 import InputCosts from "../modules/inputCosts";
+import {ThemeSwitcher} from '../modules/ThemeSwitcher'
 import {
   getAnalytics,
-  getDataFromDB,
   updateDataFromDB,
   isExpiryDay,
 } from "../../utils/index";
+import { ThemeContext } from "../../context";
 
 import {prepareForWork} from '../../services/dataControl/prepareDatabase'
 
@@ -15,6 +16,7 @@ const Main = () => {
   const [moneyValue, setMoneyValue] = useState<number>();
   const [balance, setBalance] = useState<number>();
   const [isReady, setReadyStatus] = useState<boolean>(false)
+  const {isLightTheme} = useContext(ThemeContext);
 
   useEffect(() => {
     const asynsGetData = async () => {
@@ -41,14 +43,21 @@ const Main = () => {
     setMoneyValue(await updateDataFromDB("money", parseFloat(newMoneyValue.toFixed(1))));
   };
 
+  const divStyle = {
+    backgroundColor: `${isLightTheme ? '#FFF' : '#000'}`,
+    color: `${isLightTheme ? '#000' : '#fff'}`,
+    transition: 'all .5s ease-in-out'
+  }
+
   return (
     isReady ? (
-      <div className="block-main">
+      <div className="block-main" style={divStyle}>
         <ShowMoneyValue moneyValue={moneyValue} />
         <div className="block-group">
           <ShowAnalytics moneyValue={moneyValue} balance={balance} />
           <InputCosts handleClick={handleClickInput} />
         </div>
+        <ThemeSwitcher/>
       </div>
     ) : (
       <div>Loading...</div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {StyledButton} from  './StyledButton'
 
 type IInputCosts = {
   handleClick : (inputValue : number) => void
@@ -16,14 +17,13 @@ const InputCosts = (props : IInputCosts) => {
           onChange={(e) => setValue(e.target.value)}
         ></input>
       </label>
-      <button
-        onClick={() => {
+      <StyledButton
+        handleClick={() => {
           props.handleClick(parseFloat(inputValue));
           setValue('');
         }}
-      >
-        click
-      </button>
+        textButton = {'click'}
+      />
     </div>
   );
 };

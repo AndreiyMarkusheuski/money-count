@@ -9,6 +9,8 @@
     font-weight: normal;
     font-display: swap;
     src: url(../fonts/Montserrat-Regular.woff) format('woff');
+
+    
 }
 
 // fonts variables
@@ -31,7 +33,7 @@ body {
 }
 
 .block-main {
-    height: 80vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
