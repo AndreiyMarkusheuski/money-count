@@ -27,7 +27,7 @@ const InputCosts = (props : IInputCosts) => {
           dispatch({type: 'increment'})
           setValue('');
         }}
-        textButton = {'click'}
+        textButton = {'OK'}
       />
     </div>
 
