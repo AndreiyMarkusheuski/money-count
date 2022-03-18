@@ -571,7 +571,7 @@ body{font:400 14px/1.2 "Montserrat-Regular",sans-serif,sans-serif;text-rendering
 
 .block-input input::placeholder{font-weight:bold;color:#FFF}
 
-.block-input button{display:block;margin:0 5px;font-size:20px;width:65px;height:40px;background-color:rgba(27,79,250,0.58039);border:none;border-radius:23px;font-weight:bold;color:#FFF;transition:all .5s ease-in-out}
+.block-input button{display:block;margin:0 5px;font-size:20px;width:65px;min-width:55px;height:40px;background-color:rgba(27,79,250,0.58039);border:none;border-radius:23px;font-weight:bold;color:#FFF;transition:all .5s ease-in-out}
 
 .block-input button:hover{transform:scale(1.05);box-shadow:0px 2px 10px rgba(20,53,158,0.58039)}
 
