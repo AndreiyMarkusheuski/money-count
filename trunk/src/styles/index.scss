@@ -49,10 +49,10 @@ body {
     align-items: center;
     justify-content: center;
 
-    background: crimson;
-    box-shadow: 0 -150px 70px -120px teal inset,
-                0 -220px 70px -120px yellowgreen inset,
-                0 -280px 70px -120px gold inset;
+    background: rgb(120, 176, 241);
+    box-shadow: 0 -150px 70px -120px rgb(243, 170, 239) inset,
+                0 -220px 70px -120px rgb(245, 213, 108) inset,
+                0 -280px 70px -120px rgb(175, 158, 235) inset;
 
     animation: background 4s infinite reverse;
     border-radius: 100%;
@@ -152,9 +152,9 @@ body {
 
 @keyframes background {
     50% {
-      background: darkviolet;
-      box-shadow: 0 -140px 70px -120px mediumorchid inset,
-                  0 -210px 70px -120px teal inset,
-                  0 -280px 70px -120px plum inset;
+      background: rgb(237, 169, 240);
+      box-shadow: 0 -140px 70px -120px rgb(238, 116, 238) inset,
+                  0 -210px 70px -120px rgb(235, 171, 75) inset,
+                  0 -280px 70px -120px rgb(136, 96, 245) inset;
     }
   }

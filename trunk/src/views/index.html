@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" />
     <meta http-equiv="Cache-Control" content="max-age=900, must-revalidate" />
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>
         <%= t('Title') %>
     </title>
@@ -14,7 +14,42 @@
 </head>
 
 <body>
-    <main class="page" id="root"></main>    
+    <main class="page" id="root">
+    </main> 
+
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+    <script>
+        const labels = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+        ];
+      
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+          }]
+        };
+      
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+        const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+      </script>
 </body>
 
 </html>
