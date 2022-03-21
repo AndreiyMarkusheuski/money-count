@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StyledInput/> match snapshot 1`] = `
+<body>
+  <div>
+    <input
+      data-testid="add-word-input"
+      placeholder="placeholder"
+      type="number"
+      value="250"
+    />
+  </div>
+</body>
+`;

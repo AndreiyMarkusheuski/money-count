@@ -14,6 +14,7 @@ const StyledInput = ({ typeInput, placeholder, valueInput, handleChange }: Props
             placeholder={placeholder}
             value={valueInput}
             onChange={handleChange}
+            data-testid="add-word-input"
         ></input>
     )
 }
