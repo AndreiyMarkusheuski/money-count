@@ -541,17 +541,31 @@ button.swiper-pagination-bullet{border:none;margin:0;padding:0;box-shadow:none;-
 
 body{font:400 14px/1.2 "Montserrat-Regular",sans-serif,sans-serif;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
 
-.page{display:flex;justify-content:center;align-items:center}
+.block-wrapper{height:100vh}
 
-.block-main{position:absolute;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;align-items:center;overflow:hidden}
+.block-wrapper.-dark,.block-wrapper.-light{background-color:#000}
 
-.block-money{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#78b0f1;box-shadow:0 -150px 70px -120px #f3aaef inset,0 -220px 70px -120px #f5d56c inset,0 -280px 70px -120px #af9eeb inset;animation:background 4s infinite reverse;border-radius:100%;padding:30px;width:190px;height:190px}
+.block-main{position:absolute;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;align-items:center;overflow:hidden;border-radius:15px}
+
+.block-main button{display:block;margin:0 5px;font-size:13px;width:65px;min-width:55px;height:40px;background-color:rgba(27,79,250,0.58039);border:none;border-radius:23px;font-weight:bold;color:#FFF;transition:all .5s ease-in-out}
+
+.block-main button:hover{transform:scale(1.05);box-shadow:0px 2px 10px rgba(20,53,158,0.58039)}
+
+.block-main button.switch_button{min-width:100px;max-width:250px;height:auto;padding:7px 10px;margin-top:10px}
+
+.block-money{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:100%;padding:30px;width:190px;height:190px}
 
 .block-money_high{font-size:45px}
 
 .block-money p{margin-bottom:0;font-size:20px}
 
 .block-money h2{margin:10px 0;font-size:30px}
+
+.block-money.-critical{background:#a80000;animation:background 4s infinite reverse}
+
+.block-money.-normal{background:#ffef63;color:#000}
+
+.block-money.-perfect{background:#48e872;color:#000}
 
 .block-group{display:flex;flex-direction:column;align-items:center}
 
@@ -571,9 +585,5 @@ body{font:400 14px/1.2 "Montserrat-Regular",sans-serif,sans-serif;text-rendering
 
 .block-input input::placeholder{font-weight:bold;color:#FFF}
 
-.block-input button{display:block;margin:0 5px;font-size:13px;width:65px;min-width:55px;height:40px;background-color:rgba(27,79,250,0.58039);border:none;border-radius:23px;font-weight:bold;color:#FFF;transition:all .5s ease-in-out}
-
-.block-input button:hover{transform:scale(1.05);box-shadow:0px 2px 10px rgba(20,53,158,0.58039)}
-
-@keyframes background{50%{background:#eda9f0;box-shadow:0 -140px 70px -120px #ee74ee inset,0 -210px 70px -120px #ebab4b inset,0 -280px 70px -120px #8860f5 inset}}
+@keyframes background{70%{background:#fd1d1d;box-shadow:0 -140px 70px -120px #ff3030 inset,0 -210px 70px -120px #a30000 inset,0 -280px 70px -120px #dcf560 inset}}
 
