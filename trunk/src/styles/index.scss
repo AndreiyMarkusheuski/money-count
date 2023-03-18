@@ -33,19 +33,32 @@ body {
 }
 
 .block-main {
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     overflow: hidden;
 }
 
 .block-money {
-    flex-grow: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    background: rgb(120, 176, 241);
+    box-shadow: 0 -150px 70px -120px rgb(243, 170, 239) inset,
+                0 -220px 70px -120px rgb(245, 213, 108) inset,
+                0 -280px 70px -120px rgb(175, 158, 235) inset;
+
+    animation: background 4s infinite reverse;
+    border-radius: 100%;
+    padding: 30px;
+    width: 190px;
+    height: 190px;
 
     &_high {
         font-size: 45px;
@@ -63,7 +76,6 @@ body {
 }
 
 .block-group {
-    flex-grow: 4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,21 +100,17 @@ body {
 }
 
 .block-input {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-
-    label {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    margin: 0 5px;
 
         input {      
             display: block;
-            margin: 20px auto;      
-            width: 180px;
+            margin: 20px 5px;      
+            width: 100%;
             border-radius: 23px;
             height: 30px;
             background-color: #1b4ffa94;
@@ -119,23 +127,20 @@ body {
                 color: #FFF;
             }
         }
-    }
+    
 
     button {
         display: block;
-        margin: 0 auto;
-
-        font-size: 20px;
-
-        width: 200px;
+        margin: 0 5px;
+        font-size: 13px;
+        width: 65px;
+        min-width: 55px;
         height: 40px;
-        background-color: #1b4ffa94;
+        background-color: rgba(27,79,250,0.58039);
         border: none;
         border-radius: 23px;
-        
         font-weight: bold;
         color: #FFF;
-
         transition: all .5s ease-in-out;
 
         &:hover {
@@ -144,3 +149,12 @@ body {
         }
     }
 }
+
+@keyframes background {
+    50% {
+      background: rgb(237, 169, 240);
+      box-shadow: 0 -140px 70px -120px rgb(238, 116, 238) inset,
+                  0 -210px 70px -120px rgb(235, 171, 75) inset,
+                  0 -280px 70px -120px rgb(136, 96, 245) inset;
+    }
+  }

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StyledButton /> matches snapshot 1`] = `
+<body>
+  <div>
+    <button>
+      test
+    </button>
+  </div>
+</body>
+`;
+
+exports[`<StyledButton /> matches snapshot 2`] = `
+<body>
+  <div>
+    <button>
+      test
+    </button>
+  </div>
+</body>
+`;
