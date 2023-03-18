@@ -3,7 +3,7 @@ import ShowMoneyValue from "../modules/showMoneyValue";
 import ShowAnalytics from "../modules/showAnalytics";
 import InputCosts from "../modules/inputCosts";
 import { ThemeSwitcher } from '../modules/ThemeSwitcher'
-// import Chart from "../modules/Chart";
+
 import {
   getAnalytics,
   updateDataFromDB,
@@ -55,7 +55,6 @@ const Main = () => {
       <div className="block-main" style={divStyle}>
         <ThemeSwitcher />
         <ShowMoneyValue moneyValue={moneyValue} />
-        {/* <Chart/> */}
         <div className="block-group">
           <ShowAnalytics moneyValue={moneyValue} balance={balance} />
           <InputCosts handleClick={handleClickInput} />
