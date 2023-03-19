@@ -1,9 +1,9 @@
 type State = {
-    count : number
-}
+  count: number;
+};
 
-const initState : State = {
-    count: 0
+const initState: State = {
+  count: 0,
 };
 
 export default initState;

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, RenderResult, fireEvent } from '@testing-library/react';
-import StyledInput from '../../../../app/components/modules/StyledInput'
+import StyledInput from '../../../../app/components/styled-input'
 
 let documentBody: RenderResult;
 

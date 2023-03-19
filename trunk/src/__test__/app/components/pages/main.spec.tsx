@@ -1,6 +1,6 @@
 import React from "react";
 import { render, RenderResult, fireEvent } from '@testing-library/react';
-import Main from "../../../../app/components/pages/main";
+import Main from "../../../../app/pages/main";
 
 let documentBody: RenderResult;
 

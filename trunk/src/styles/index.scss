@@ -10,7 +10,7 @@
     font-display: swap;
     src: url(../fonts/Montserrat-Regular.woff) format('woff');
 
-    
+
 }
 
 // fonts variables
@@ -25,91 +25,131 @@ body {
     overflow-x: hidden;
 }
 
-.page {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.block {
+    &-wrapper {
+        height: 100vh;
 
-.block-main {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-}
-
-.block-money {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background: rgb(120, 176, 241);
-    box-shadow: 0 -150px 70px -120px rgb(243, 170, 239) inset,
-                0 -220px 70px -120px rgb(245, 213, 108) inset,
-                0 -280px 70px -120px rgb(175, 158, 235) inset;
-
-    animation: background 4s infinite reverse;
-    border-radius: 100%;
-    padding: 30px;
-    width: 190px;
-    height: 190px;
-
-    &_high {
-        font-size: 45px;
+        &.-dark, &.-light {
+            background-color: #000;
+        }
     }
 
-    p {
-        margin-bottom: 0;
-        font-size: 20px;
-    }
-    
-    h2 {
-        margin: 10px 0;
-        font-size: 30px;
-    }
-}
+    &-main {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 15px;
 
-.block-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.block-analytics {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    h3 {
-        margin: 10px 0;
-        font-size: 35px;
-    }
-
-    h4 {        
-        margin: 0;
-        font-size: 15px;
-    }
-
-}
-
-.block-input {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 5px;
-
-        input {      
+        & button {
             display: block;
-            margin: 20px 5px;      
+            margin: 0 5px;
+            font-size: 13px;
+            width: 65px;
+            min-width: 55px;
+            height: 40px;
+            background-color: rgba(27, 79, 250, 0.58039);
+            border: none;
+            border-radius: 23px;
+            font-weight: bold;
+            color: #FFF;
+            transition: all .5s ease-in-out;
+    
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0px 2px 10px #14359e94;
+            }
+    
+            &.switch_button {
+                min-width: 100px;
+                max-width: 250px;
+                height: auto;
+                padding: 7px 10px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    &-money {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 100%;
+        padding: 30px;
+        width: 190px;
+        height: 190px;
+
+        &_high {
+            font-size: 45px;
+        }
+
+        p {
+            margin-bottom: 0;
+            font-size: 20px;
+        }
+
+        h2 {
+            margin: 10px 0;
+            font-size: 30px;
+        }
+
+        &.-critical {
+            background: rgb(168, 0, 0);
+            animation: background 4s infinite reverse;
+        }
+
+        &.-normal {
+            background: #ffef63;
+            color: #000;
+        }
+
+        &.-perfect {
+            background: #48e872;
+            color: #000;
+        }
+    }
+
+    &-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-analytics {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            margin: 10px 0;
+            font-size: 35px;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 15px;
+        }
+
+    }
+
+    &-input {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 5px;
+
+        input {
+            display: block;
+            margin: 20px 5px;
             width: 100%;
             border-radius: 23px;
             height: 30px;
@@ -127,34 +167,14 @@ body {
                 color: #FFF;
             }
         }
-    
-
-    button {
-        display: block;
-        margin: 0 5px;
-        font-size: 13px;
-        width: 65px;
-        min-width: 55px;
-        height: 40px;
-        background-color: rgba(27,79,250,0.58039);
-        border: none;
-        border-radius: 23px;
-        font-weight: bold;
-        color: #FFF;
-        transition: all .5s ease-in-out;
-
-        &:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 2px 10px #14359e94;
-        }
     }
 }
 
 @keyframes background {
-    50% {
-      background: rgb(237, 169, 240);
-      box-shadow: 0 -140px 70px -120px rgb(238, 116, 238) inset,
-                  0 -210px 70px -120px rgb(235, 171, 75) inset,
-                  0 -280px 70px -120px rgb(136, 96, 245) inset;
+    70% {
+        background: rgb(253, 29, 29);
+        box-shadow: 0 -140px 70px -120px rgb(255, 48, 48) inset,
+            0 -210px 70px -120px rgb(163, 0, 0) inset,
+            0 -280px 70px -120px rgb(220, 245, 96) inset;
     }
-  }
+}

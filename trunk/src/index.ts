@@ -1,3 +1,3 @@
-import './styles/index.scss';
-import './app/components'
-import './service-worker';
+import "./styles/index.scss";
+import "./app";
+import "./service-worker";
