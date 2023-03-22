@@ -1,6 +1,6 @@
 import {userName} from "./config";
 
-import { DBKeys } from '../../const/index'
+import { DBKeys } from '../../constants'
 
 const db = {
   initData: (data : number, type : string) => {

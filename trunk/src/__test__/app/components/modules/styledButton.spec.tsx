@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, RenderResult, fireEvent } from '@testing-library/react';
-import { StyledButton } from '../../../../app/components/modules/StyledButton'
+import StyledButton from '../../../../app/components/styled-button'
 
 let documentBody: RenderResult;
 
